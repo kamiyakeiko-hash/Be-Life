@@ -126,60 +126,34 @@ main, footer { margin-left: 132px; }
   z-index: 2;
   display: inline-flex;
   align-items: center;
-  min-height: 32px;
-  padding: 6px 12px;
+  justify-content: center;
+  min-height: 30px;
+  max-width: 92px;
+  padding: 5px 9px;
   color: #fffdf8;
   background: rgba(55, 54, 51, .78);
   border: 1px solid rgba(255, 253, 248, .44);
   box-shadow: 0 12px 34px rgba(55, 54, 51, .18);
   backdrop-filter: blur(8px);
-  font-size: clamp(11px, 1.35vw, 15px);
+  font-size: clamp(10px, 1.15vw, 13px);
   font-weight: 700;
   line-height: 1.35;
-  white-space: nowrap;
+  text-align: center;
   animation: calloutFloat 3.8s var(--ease-soft) infinite alternate;
 }
-.hero-callout::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 100%;
-  width: var(--line-width, 48px);
-  height: 1px;
-  background: rgba(226, 43, 35, .9);
-  transform: rotate(var(--line-angle, 0deg));
-  transform-origin: left center;
-}
-.hero-callout::before {
-  content: "";
-  position: absolute;
-  width: 7px;
-  height: 7px;
-  background: #e22b23;
-  border: 2px solid #fffdf8;
-  border-radius: 50%;
-  box-shadow: 0 0 0 4px rgba(226, 43, 35, .18);
-}
 .hero-callout--shoulder {
-  top: 27%;
-  left: 1.8%;
-  --line-width: 66px;
-  --line-angle: 24deg;
-}
-.hero-callout--shoulder::before {
-  left: calc(100% + 61px);
-  top: calc(50% + 28px);
+  top: 26%;
+  left: 42%;
 }
 .hero-callout--arm {
-  top: 37.2%;
-  left: 3.4%;
-  --line-width: 54px;
-  --line-angle: -8deg;
+  top: 36%;
+  left: 42%;
   animation-delay: .35s;
 }
-.hero-callout--arm::before {
-  left: calc(100% + 50px);
-  top: calc(50% - 6px);
+.hero-callout--belly {
+  top: 46%;
+  left: 42%;
+  animation-delay: .7s;
 }
 
 .intro,
@@ -973,31 +947,34 @@ footer ul {
     font-family: var(--roman);
     letter-spacing: .14em;
   }
-  .hero { min-height: 100svh; margin-top: 0; animation: none; }
+  .hero {
+    min-height: 100svh;
+    margin-top: 0;
+    animation: none;
+    background-size: cover;
+    background-position: center top;
+  }
   .hero__notes {
     width: min(100%, calc(100svh * 9 / 16));
   }
   .hero-callout {
-    min-height: 28px;
-    padding: 5px 9px;
-    font-size: clamp(10px, 2.8vw, 12px);
+    min-height: 24px;
+    max-width: 70px;
+    padding: 4px 6px;
+    font-size: clamp(8px, 2.15vw, 10px);
+    line-height: 1.18;
   }
   .hero-callout--shoulder {
-    top: 26.5%;
-    left: 1%;
-    --line-width: 48px;
-  }
-  .hero-callout--shoulder::before {
-    left: calc(100% + 43px);
-    top: calc(50% + 21px);
+    top: 25.8%;
+    left: 40%;
   }
   .hero-callout--arm {
-    top: 37.5%;
-    left: 2%;
-    --line-width: 40px;
+    top: 36%;
+    left: 40%;
   }
-  .hero-callout--arm::before {
-    left: calc(100% + 36px);
+  .hero-callout--belly {
+    top: 46%;
+    left: 40%;
   }
 }
 
