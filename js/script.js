@@ -53,6 +53,15 @@
   }
 
   if ("IntersectionObserver" in window) {
+    var revealGroups = {};
+    document.querySelectorAll(".reveal").forEach(function (el) {
+      var section = el.closest("section") || el.parentElement || document.body;
+      var key = section.id || section.className || "page";
+      revealGroups[key] = revealGroups[key] || 0;
+      el.style.setProperty("--reveal-delay", Math.min(revealGroups[key] * 90, 360) + "ms");
+      revealGroups[key] += 1;
+    });
+
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {

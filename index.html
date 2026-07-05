@@ -15,13 +15,12 @@
 <body>
   <header class="site-header" id="siteHeader">
     <a href="#" class="logo" aria-label="Be-Life home">
-      <span class="logo__mark">Be-Life</span>
-      <span class="logo__sub">Personal Gym</span>
+      <img class="logo__image" src="images/rogo.png" alt="Be-Life Personal Gym" />
     </a>
     <button class="ham" type="button" aria-label="メニューを開く" aria-controls="mobNav" aria-expanded="false"><i></i><i></i><i></i></button>
     <nav class="nav" aria-label="グローバルナビゲーション">
       <a href="#cause">CAUSE</a>
-      <a href="#method">METHOD</a>
+      <a href="#result">RESULT</a>
       <a href="#about">ABOUT</a>
       <a href="#voice">VOICE</a>
       <a href="#price">PRICE</a>
@@ -32,7 +31,7 @@
 
   <nav class="mob-nav" id="mobNav">
     <a href="#cause">CAUSE</a>
-    <a href="#method">METHOD</a>
+    <a href="#result">RESULT</a>
     <a href="#about">ABOUT</a>
     <a href="#voice">VOICE</a>
     <a href="#price">PRICE</a>
@@ -41,7 +40,12 @@
   </nav>
 
   <main>
-    <section class="hero" aria-label="Be-Life 姿勢改善ビフォーアフター"></section>
+    <section class="hero" aria-label="Be-Life 姿勢改善ビフォーアフター">
+      <div class="hero__notes" aria-label="姿勢の見え方のポイント">
+        <span class="hero-callout hero-callout--shoulder">肩が分厚く見える</span>
+        <span class="hero-callout hero-callout--arm">二の腕が太く見える</span>
+      </div>
+    </section>
 
     <section class="cause" id="cause">
       <div class="wrap">
@@ -49,6 +53,14 @@
           <p>CAUSE</p>
           <h2>気づかないうちに、<br />姿勢は日常から崩れていく。</h2>
           <span>It may not be laziness. It may be your everyday routine.</span>
+        </div>
+        <div class="cause__images reveal">
+          <figure class="cause__image cause__image--sit">
+            <img src="images/cause-sit.png" alt="座り姿勢による身体への負担" />
+          </figure>
+          <figure class="cause__image cause__image--stand">
+            <img src="images/cause-stand.png" alt="立ち姿勢の崩れによる身体への影響" />
+          </figure>
         </div>
         <div class="cause__grid reveal">
           <div class="cause__col">
@@ -92,19 +104,24 @@
       </div>
     </section>
 
-    <section class="method" id="method">
-      <div class="wrap method__grid">
-        <div class="section-title reveal">
-          <p>METHOD</p>
-          <h2>ただ運動量を<br />増やすだけではなく。</h2>
-          <span>Know, release, move, and keep.</span>
+    <section class="result" id="result">
+      <div class="wrap result__grid">
+        <div class="result__body reveal">
+          <div class="section-title">
+            <p>RESULT</p>
+            <h2>姿勢の崩れは、<br />見た目にも身体にも表れます。</h2>
+            <span>Small habits can change how your body looks and feels.</span>
+          </div>
+          <div class="result__steps">
+            <div><span>01</span><h3>今の姿勢や身体の使い方を知る</h3></div>
+            <div><span>02</span><h3>硬くなった部分や使えていない部分を確認する</h3></div>
+            <div><span>03</span><h3>必要な動きを少しずつ身につける</h3></div>
+            <div><span>04</span><h3>日常でも正しい身体の使い方ができる状態を目指す</h3></div>
+          </div>
         </div>
-        <div class="method__steps reveal">
-          <div><span>01</span><h3>今の姿勢や身体の使い方を知る</h3></div>
-          <div><span>02</span><h3>硬くなった部分や使えていない部分を確認する</h3></div>
-          <div><span>03</span><h3>必要な動きを少しずつ身につける</h3></div>
-          <div><span>04</span><h3>日常でも正しい身体の使い方ができる状態を目指す</h3></div>
-        </div>
+        <figure class="result__image reveal">
+          <img src="images/result.png" alt="姿勢の崩れによって起きる見た目や身体への影響" />
+        </figure>
       </div>
     </section>
 
@@ -158,7 +175,6 @@
 
     <section class="stats">
       <div class="wrap stats__grid reveal">
-        <div><strong>12</strong><span>Years</span><p>トレーナー指導歴</p></div>
         <div><strong>10,000</strong><span>Sessions</span><p>延べトレーニング実績</p></div>
         <div><strong>90</strong><span>%</span><p>リピート率</p></div>
         <div><strong>5.0</strong><span>Reviews</span><p>Googleクチコミ</p></div>
@@ -173,7 +189,6 @@
         <div class="trainer__body reveal">
           <div class="section-title">
             <p>TRAINER</p>
-            <h2>担当が代わらない、<br />一人のトレーナー。</h2>
           </div>
           <h3>真壁 康平</h3>
           <blockquote>「姿勢が変わると、毎日が変わる」</blockquote>
@@ -291,7 +306,7 @@
   <aside class="reservation-card" id="pcCtaCard" aria-label="予約導線">
     <button class="reservation-card__close" id="pcCtaClose" type="button" aria-label="閉じる">&times;</button>
     <p class="reservation-card__label">— Reservation</p>
-    <p class="reservation-card__title">まずは60分の<br />体験から</p>
+    <p class="reservation-card__title">まずは60分の体験から</p>
     <a href="https://calendar.app.google/rdXXUX6SRT7NkNRK8" target="_blank" rel="noopener" class="reservation-card__primary">体験を予約する <span>→</span></a>
     <a href="https://lin.ee/77Cw8hf" target="_blank" rel="noopener" class="reservation-card__secondary">LINEで質問する <span>↗</span></a>
   </aside>
@@ -299,12 +314,12 @@
   <footer>
     <div class="wrap footer__grid">
       <div>
-        <span class="footer__logo">Be-Life</span>
+        <img class="footer__logo" src="images/rogo.png" alt="Be-Life Personal Gym" />
         <p>Personal Gym / Akihabara · Asakusabashi</p>
       </div>
       <ul>
         <li><a href="#cause">CAUSE</a></li>
-        <li><a href="#method">METHOD</a></li>
+        <li><a href="#result">RESULT</a></li>
         <li><a href="#about">ABOUT</a></li>
         <li><a href="#voice">VOICE</a></li>
         <li><a href="#price">PRICE</a></li>
