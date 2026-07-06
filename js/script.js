@@ -4,8 +4,8 @@
   var header = document.getElementById("siteHeader");
   var ham = document.querySelector(".ham");
   var mobNav = document.getElementById("mobNav");
-  var ctaClose = document.getElementById("pcCtaClose");
   var pcCta = document.getElementById("pcCtaCard");
+  var hero = document.querySelector(".hero");
 
   function setHeaderState() {
     if (!header) return;
@@ -20,23 +20,8 @@
     document.body.classList.remove("nav-open");
   }
 
-  function setReservationCardState() {
-    if (!pcCta || pcCta.classList.contains("is-dismissed")) return;
-
-    var isMobile = window.matchMedia("(max-width: 760px)").matches;
-    if (!isMobile) {
-      pcCta.classList.add("is-visible");
-      return;
-    }
-
-    pcCta.classList.toggle("is-visible", window.scrollY > window.innerHeight * 0.65);
-  }
-
   window.addEventListener("scroll", setHeaderState, { passive: true });
-  window.addEventListener("scroll", setReservationCardState, { passive: true });
-  window.addEventListener("resize", setReservationCardState);
   setHeaderState();
-  setReservationCardState();
 
   if (ham && mobNav) {
     ham.addEventListener("click", function () {
@@ -80,11 +65,18 @@
     });
   }
 
-  if (ctaClose && pcCta) {
-    ctaClose.addEventListener("click", function () {
-      pcCta.classList.add("is-dismissed");
-      pcCta.classList.add("is-hidden");
+  if (pcCta && hero && "IntersectionObserver" in window) {
+    var ctaObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        pcCta.classList.toggle("is-visible", !entry.isIntersecting && entry.boundingClientRect.top < 0);
+      });
+    }, {
+      rootMargin: "0px 0px -28% 0px",
+      threshold: 0
     });
+    ctaObserver.observe(hero);
+  } else if (pcCta) {
+    pcCta.classList.add("is-visible");
   }
 
   var carousel = document.getElementById("voiceCarousel");
