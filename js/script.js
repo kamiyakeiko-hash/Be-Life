@@ -4,8 +4,6 @@
   var header = document.getElementById("siteHeader");
   var ham = document.querySelector(".ham");
   var mobNav = document.getElementById("mobNav");
-  var pcCta = document.getElementById("pcCtaCard");
-  var hero = document.querySelector(".hero");
 
   function setHeaderState() {
     if (!header) return;
@@ -63,20 +61,6 @@
     document.querySelectorAll(".reveal").forEach(function (el) {
       el.classList.add("is-visible");
     });
-  }
-
-  if (pcCta && hero && "IntersectionObserver" in window) {
-    var ctaObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        pcCta.classList.toggle("is-visible", !entry.isIntersecting && entry.boundingClientRect.top < 0);
-      });
-    }, {
-      rootMargin: "0px 0px -28% 0px",
-      threshold: 0
-    });
-    ctaObserver.observe(hero);
-  } else if (pcCta) {
-    pcCta.classList.add("is-visible");
   }
 
   var carousel = document.getElementById("voiceCarousel");

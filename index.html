@@ -10,37 +10,46 @@
   <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="preload" as="image" href="images/before_after_mobile.png" fetchpriority="high" />
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  <link rel="icon" type="image/jpeg" href="images/favicon.jpg" />
 </head>
 <body>
   <header class="site-header" id="siteHeader">
-    <a href="#" class="logo" aria-label="Be-Life home">
-      <img class="logo__image" src="images/rogo.png" alt="Be-Life Personal Gym" />
-    </a>
     <button class="ham" type="button" aria-label="メニューを開く" aria-controls="mobNav" aria-expanded="false"><i></i><i></i><i></i></button>
     <nav class="nav" aria-label="グローバルナビゲーション">
+      <a href="#hero">HERO</a>
       <a href="#cause">CAUSE</a>
+      <a href="#empathy">EMPATHY</a>
       <a href="#result">RESULT</a>
-      <a href="#about">ABOUT</a>
-      <a href="#voice">VOICE</a>
+      <a href="#ldeal">LDEAL</a>
+      <a href="#shop">SHOP</a>
+      <a href="#treiner">TREINER</a>
+      <a href="#review">REVIEW</a>
       <a href="#price">PRICE</a>
+      <a href="#FAQ">FAQ</a>
       <a href="#access">ACCESS</a>
+      <a href="#CTA">CTA</a>
       <a href="https://calendar.app.google/rdXXUX6SRT7NkNRK8" target="_blank" rel="noopener" class="nav__reserve">RESERVATION</a>
     </nav>
   </header>
 
   <nav class="mob-nav" id="mobNav">
+    <a href="#hero">HERO</a>
     <a href="#cause">CAUSE</a>
+    <a href="#empathy">EMPATHY</a>
     <a href="#result">RESULT</a>
-    <a href="#about">ABOUT</a>
-    <a href="#voice">VOICE</a>
+    <a href="#ldeal">LDEAL</a>
+    <a href="#shop">SHOP</a>
+    <a href="#treiner">TREINER</a>
+    <a href="#review">REVIEW</a>
     <a href="#price">PRICE</a>
+    <a href="#FAQ">FAQ</a>
     <a href="#access">ACCESS</a>
+    <a href="#CTA">CTA</a>
     <a href="https://calendar.app.google/rdXXUX6SRT7NkNRK8" target="_blank" rel="noopener">RESERVATION</a>
   </nav>
 
   <main>
-    <section class="hero" aria-label="Be-Life 姿勢改善ビフォーアフター">
+    <section class="hero" id="hero" aria-label="Be-Life 姿勢改善ビフォーアフター">
       <div class="hero__notes" aria-label="姿勢の見え方のポイント">
         <span class="hero-callout hero-callout--shoulder">肩と背中の厚み</span>
         <span class="hero-callout hero-callout--arm">二の腕が太く見える</span>
@@ -105,10 +114,10 @@
       </div>
     </section>
 
-    <section class="menu-section" id="course">
+    <section class="menu-section" id="empathy">
       <div class="wrap">
         <div class="section-title section-title--center reveal">
-          <p>COURSE</p>
+          <p>EMPATHY</p>
           <h2>整えて、動かして、<br />続く姿勢へ。</h2>
         </div>
         <div class="course-grid">
@@ -152,10 +161,10 @@
       </div>
     </section>
 
-    <section class="intro" id="about">
+    <section class="intro" id="ldeal">
       <div class="wrap">
         <div class="section-title reveal">
-          <p>ABOUT US</p>
+          <p>LDEAL</p>
           <h2>秋葉原・浅草橋の<br />姿勢改善専門ジムです。</h2>
           <span>Posture training and gentle strength work.</span>
         </div>
@@ -174,45 +183,58 @@
       </div>
     </section>
 
-    <section class="stats">
-      <div class="wrap stats__grid reveal">
-        <div><strong>10,000</strong><span>Sessions</span><p>延べトレーニング実績</p></div>
-        <div><strong>90</strong><span>%</span><p>リピート率</p></div>
-        <div><strong>5.0</strong><span>Reviews</span><p>Googleクチコミ</p></div>
-      </div>
-    </section>
-
-    <section class="trainer" id="trainer">
-      <div class="wrap trainer__grid">
-        <figure class="trainer__image reveal">
-          <img src="images/trainer.jpg" alt="Be-Life 代表トレーナー 真壁康平" />
-        </figure>
-        <div class="trainer__body reveal">
-          <div class="section-title">
-            <p>TRAINER</p>
+    <section class="stats" id="shop">
+      <div class="wrap">
+        <details class="section-disclosure reveal">
+          <summary>
+            <span class="section-disclosure__title">SHOP</span>
+            <span class="section-disclosure__toggle">詳細</span>
+          </summary>
+          <div class="section-disclosure__content stats__grid">
+            <div><strong>10,000</strong><span>Sessions</span><p>延べトレーニング実績</p></div>
+            <div><strong>90</strong><span>%</span><p>リピート率</p></div>
+            <div><strong>5.0</strong><span>Reviews</span><p>Googleクチコミ</p></div>
           </div>
-          <h3>真壁 康平</h3>
-          <blockquote>「姿勢が変わると、毎日が変わる」</blockquote>
-          <p>あなたの体の癖、固まっている場所、使えていない筋肉、そして話しやすい距離感まで、毎回のセッションに反映します。</p>
-          <dl>
-            <dt>Qualifications</dt><dd>NSCA-CPT ／ 栄養コンシェルジュ2つ星</dd>
-            <dt>Experience</dt><dd>指導歴12年・延べ10,000件以上</dd>
-          </dl>
-        </div>
+        </details>
       </div>
     </section>
 
-    <section class="service-cta">
+    <section class="trainer" id="treiner">
+      <div class="wrap">
+        <details class="section-disclosure reveal">
+          <summary>
+            <span class="section-disclosure__title">TREINER</span>
+            <span class="section-disclosure__toggle">詳細</span>
+          </summary>
+          <div class="section-disclosure__content trainer__grid">
+            <figure class="trainer__image">
+              <img src="images/trainer.jpg" alt="Be-Life 代表トレーナー 真壁康平" />
+            </figure>
+            <div class="trainer__body">
+              <h3>真壁 康平</h3>
+              <blockquote>「姿勢が変わると、毎日が変わる」</blockquote>
+              <p>あなたの体の癖、固まっている場所、使えていない筋肉、そして話しやすい距離感まで、毎回のセッションに反映します。</p>
+              <dl>
+                <dt>Qualifications</dt><dd>NSCA-CPT ／ 栄養コンシェルジュ2つ星</dd>
+                <dt>Experience</dt><dd>指導歴12年・延べ10,000件以上</dd>
+              </dl>
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <div class="service-cta">
       <div class="wrap reveal">
         <p>まずは、いまの姿勢を知るところから。</p>
         <a href="https://calendar.app.google/rdXXUX6SRT7NkNRK8" target="_blank" rel="noopener" class="text-link">TRIAL SESSION</a>
       </div>
-    </section>
+    </div>
 
-    <section class="voice-section" id="voice">
+    <section class="voice-section" id="review">
       <div class="wrap">
         <div class="section-title section-title--center reveal">
-          <p>VOICE</p>
+          <p>REVIEW</p>
           <h2>お客様の声</h2>
         </div>
         <div class="voice-carousel-outer reveal">
@@ -252,7 +274,7 @@
       </div>
     </section>
 
-    <section class="faq-section" id="faq">
+    <section class="faq-section" id="FAQ">
       <div class="wrap">
         <div class="section-title reveal">
           <p>FAQ</p>
@@ -292,9 +314,9 @@
       </div>
     </section>
 
-    <section class="closing">
+    <section class="closing" id="CTA">
       <div class="wrap reveal">
-        <p>Start with Be-Life</p>
+        <p>CTA</p>
         <h2>まずは60分の体験から。</h2>
         <div class="cta-pair">
           <a href="https://calendar.app.google/rdXXUX6SRT7NkNRK8" target="_blank" rel="noopener" class="btn">体験を予約する</a>
@@ -304,31 +326,24 @@
     </section>
   </main>
 
-  <aside class="reservation-card" id="pcCtaCard" aria-label="予約導線">
-    <div class="reservation-card__plant" aria-hidden="true">
-      <img class="reservation-card__part reservation-card__part--soil" src="images/aikon.png?v=20260706-1825" alt="" />
-      <img class="reservation-card__part reservation-card__part--stem" src="images/aikon.png?v=20260706-1825" alt="" />
-      <img class="reservation-card__part reservation-card__part--leaf-left" src="images/aikon.png?v=20260706-1825" alt="" />
-      <img class="reservation-card__part reservation-card__part--leaf-right" src="images/aikon.png?v=20260706-1825" alt="" />
-    </div>
-    <a href="https://calendar.app.google/rdXXUX6SRT7NkNRK8" target="_blank" rel="noopener" class="reservation-card__button reservation-card__button--trial" aria-label="予約ページを開く"></a>
-    <a href="https://lin.ee/77Cw8hf" target="_blank" rel="noopener" class="reservation-card__button reservation-card__button--line" aria-label="LINEを開く"></a>
-  </aside>
-
   <footer>
     <div class="wrap footer__grid">
       <div>
-        <img class="footer__logo" src="images/rogo.png" alt="Be-Life Personal Gym" />
-        <p>Personal Gym / Akihabara · Asakusabashi</p>
+        <img class="footer__logo" src="images/favicon.jpg" alt="Be-Life Personal Gym" />
       </div>
       <ul>
+        <li><a href="#hero">HERO</a></li>
         <li><a href="#cause">CAUSE</a></li>
+        <li><a href="#empathy">EMPATHY</a></li>
         <li><a href="#result">RESULT</a></li>
-        <li><a href="#about">ABOUT</a></li>
-        <li><a href="#voice">VOICE</a></li>
+        <li><a href="#ldeal">LDEAL</a></li>
+        <li><a href="#shop">SHOP</a></li>
+        <li><a href="#treiner">TREINER</a></li>
+        <li><a href="#review">REVIEW</a></li>
         <li><a href="#price">PRICE</a></li>
-        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#FAQ">FAQ</a></li>
         <li><a href="#access">ACCESS</a></li>
+        <li><a href="#CTA">CTA</a></li>
       </ul>
       <p class="copyright">&copy; 2026 Be-Life. All rights reserved.</p>
     </div>
