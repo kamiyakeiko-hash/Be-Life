@@ -75,29 +75,31 @@ p, h1, h2, h3, h4 { word-break: keep-all; overflow-wrap: break-word; }
   display: none;
   width: 44px;
   height: 44px;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  background: rgba(255, 253, 248, .72);
+  padding: 0;
+  border: 0;
+  background: transparent;
 }
 .ham i {
   display: block;
-  width: 17px;
-  height: 1px;
-  margin: 5px auto;
+  width: 26px;
+  height: 2px;
+  margin: 6px auto;
   background: var(--blue-dark);
   transition: transform .25s, opacity .25s;
 }
-.ham.is-active i:nth-child(1) { transform: translateY(6px) rotate(38deg); }
+.ham.is-active i:nth-child(1) { transform: translateY(8px) rotate(38deg); }
 .ham.is-active i:nth-child(2) { opacity: 0; }
-.ham.is-active i:nth-child(3) { transform: translateY(-6px) rotate(-38deg); }
+.ham.is-active i:nth-child(3) { transform: translateY(-8px) rotate(-38deg); }
 .mob-nav {
   position: fixed;
-  inset: 72px 0 auto;
+  inset: 72px 0 0 auto;
   z-index: 45;
   display: none;
-  padding: 18px 24px 28px;
+  width: 50vw;
+  padding: 30px 24px 34px;
   background: rgba(247, 245, 239, .98);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 0;
+  overflow-y: auto;
 }
 
 main, footer { margin-left: 132px; }
@@ -650,57 +652,107 @@ blockquote {
 }
 .carousel-dot.active { background: var(--blue-dark); }
 
-.price-list {
+.price-board {
   margin-top: 48px;
-  border-top: 1px solid var(--line);
+  padding: clamp(22px, 4vw, 40px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
 }
-.price-list div {
-  display: grid;
-  grid-template-columns: 120px 1fr auto;
-  gap: 24px;
-  align-items: center;
-  min-height: 86px;
-  border-bottom: 1px solid var(--line);
-  transition: background .35s var(--ease-out), padding .35s var(--ease-out);
+.price-group + .price-group {
+  margin-top: 22px;
 }
-.price-list div:hover {
-  padding-inline: 14px;
-  background: rgba(134, 165, 143, .08);
-}
-.price-list span {
+.price-group h3 {
+  margin: 0 0 10px;
+  padding: 7px 12px;
   color: var(--blue-dark);
-  font-family: var(--roman);
-  font-style: italic;
-  font-size: 22px;
-}
-.price-list strong {
+  background: var(--pale);
   font-family: var(--mincho);
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
 }
-.price-list b {
+.price-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  min-height: 56px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(77, 115, 88, .16);
+}
+.price-row:last-child {
+  border-bottom: 0;
+}
+.price-row strong {
+  display: block;
+  font-family: var(--mincho);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+.price-row span,
+.price-row em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.35;
+}
+.price-row b {
   color: var(--blue-dark);
   font-family: var(--roman);
   font-size: 28px;
+  font-weight: 500;
+  line-height: 1;
+  text-align: right;
+  white-space: nowrap;
+}
+.price-row b small {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 12px;
   font-weight: 400;
+  line-height: 1.3;
+}
+.price-extras {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.price-extras div {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 12px;
+  align-items: baseline;
+  padding: 12px 14px;
+  background: rgba(134, 165, 143, .08);
+}
+.price-extras span {
+  font-family: var(--mincho);
+  font-size: 15px;
+}
+.price-extras b {
+  color: var(--blue-dark);
+  font-family: var(--roman);
+  font-size: 22px;
+  font-weight: 500;
+}
+.price-extras small {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-size: 11px;
 }
 .price-note {
   margin: 22px 0 0;
   color: var(--muted);
   font-size: 14px;
 }
-.price-cta {
-  margin-top: 28px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: flex-start;
-}
-.price-cta .btn--line {
-  color: var(--blue-dark);
-  border-color: var(--blue);
-}
-
 .faq-wrap {
   margin-top: 44px;
   border-top: 1px solid var(--line);
@@ -900,19 +952,38 @@ footer ul {
   .ham { display: block; }
   .mob-nav {
     display: grid;
-    gap: 2px;
-    transform: translateY(-120%);
+    align-content: start;
+    gap: 0;
+    transform: translateX(110%);
     transition: transform .25s;
   }
-  .mob-nav.is-open { transform: translateY(0); }
+  .mob-nav.is-open { transform: translateX(0); }
   .mob-nav a {
-    min-height: 46px;
+    min-height: 82px;
     display: flex;
     align-items: center;
+    padding: 0;
     border-bottom: 1px solid var(--line);
     color: var(--blue-dark);
-    font-family: var(--roman);
-    letter-spacing: .14em;
+    font-family: var(--mincho);
+    font-size: clamp(22px, 5.6vw, 32px);
+    letter-spacing: .08em;
+  }
+  .mob-nav a:first-child {
+    border-top: 1px solid var(--line);
+  }
+  .mob-nav .mob-nav__line {
+    min-height: 68px;
+    justify-content: center;
+    margin-top: 42px;
+    border: 0;
+    border-radius: 2px;
+    background: #1f1a14;
+    color: #fff;
+    font-family: var(--sans);
+    font-size: clamp(13px, 3.5vw, 18px);
+    font-weight: 700;
+    letter-spacing: .1em;
   }
   .hero {
     min-height: 100svh;
@@ -1009,10 +1080,72 @@ footer ul {
     grid-template-columns: 1fr;
     gap: 4px;
   }
-  .price-list div {
+  .price {
+    padding: 56px 0 42px;
+  }
+  .price .section-title p {
+    margin-bottom: 8px;
+    font-size: 12px;
+  }
+  .price .section-title h2 {
+    font-size: 24px;
+    line-height: 1.3;
+  }
+  .price-board {
+    margin-top: 22px;
+    padding: 14px;
+  }
+  .price-group + .price-group {
+    margin-top: 12px;
+  }
+  .price-group h3 {
+    margin-bottom: 6px;
+    padding: 5px 8px;
+    font-size: 14px;
+  }
+  .price-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px;
+    min-height: 38px;
+    padding: 4px 0;
+  }
+  .price-row strong {
+    font-size: 13px;
+    line-height: 1.35;
+  }
+  .price-row span {
+    font-size: 10px;
+  }
+  .price-row b {
+    font-size: 16px;
+    white-space: nowrap;
+  }
+  .price-row b small {
+    margin-top: 3px;
+    font-size: 9px;
+  }
+  .price-extras {
+    margin-top: 12px;
+    padding-top: 10px;
     grid-template-columns: 1fr;
-    gap: 2px;
-    padding: 18px 0;
+    gap: 8px;
+  }
+  .price-extras div {
+    padding: 8px;
+  }
+  .price-extras span {
+    font-size: 11px;
+  }
+  .price-extras b {
+    font-size: 14px;
+  }
+  .price-extras small {
+    font-size: 9px;
+  }
+  .price-note {
+    margin-top: 12px;
+    font-size: 11px;
+    line-height: 1.55;
   }
   .access__map iframe { min-height: 340px; }
   .faq summary {
@@ -1098,6 +1231,43 @@ footer ul {
   .site-header {
     padding-inline: 12px;
     gap: 8px;
+  }
+  .price {
+    padding: 42px 0 32px;
+  }
+  .price .section-title h2 {
+    font-size: 21px;
+  }
+  .price-board {
+    margin-top: 16px;
+    padding: 10px;
+  }
+  .price-group + .price-group {
+    margin-top: 9px;
+  }
+  .price-group h3 {
+    font-size: 12px;
+  }
+  .price-row {
+    min-height: 34px;
+  }
+  .price-row strong {
+    font-size: 12px;
+  }
+  .price-row span {
+    font-size: 9px;
+  }
+  .price-row b {
+    font-size: 14px;
+  }
+  .price-row b small {
+    font-size: 8px;
+  }
+  .price-extras {
+    grid-template-columns: 1fr;
+  }
+  .price-note {
+    font-size: 10px;
   }
   .ba-pair { gap: 8px; }
   .cause {
