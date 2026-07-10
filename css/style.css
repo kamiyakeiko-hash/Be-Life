@@ -379,6 +379,126 @@ main, footer { margin-left: 132px; }
   gap: clamp(22px, 4vw, 46px);
   margin-top: clamp(40px, 6vw, 64px);
 }
+.cause__diagram {
+  position: relative;
+  overflow: hidden;
+  margin-top: clamp(48px, 7vw, 78px);
+  padding: clamp(42px, 6vw, 72px) clamp(18px, 4vw, 58px);
+  border-radius: 6px;
+  background: url("../images/couse-backgraund.png") center / cover no-repeat;
+  isolation: isolate;
+}
+.cause__diagram::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: rgba(255, 255, 255, .76);
+}
+.cause__diagram::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: rgba(238, 242, 234, .18);
+}
+.cause__diagram > * {
+  position: relative;
+  z-index: 1;
+}
+.cause__diagram-bg {
+  display: none;
+}
+.cause__diagram-mobile-break {
+  display: none;
+}
+.cause__mark {
+  position: absolute;
+  right: clamp(54px, 10vw, 150px);
+  width: clamp(34px, 5vw, 58px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(134, 165, 143, .12);
+  border-radius: 50%;
+  background: rgba(134, 165, 143, .045);
+}
+.cause__mark--shoulder { top: 28%; transform: translateX(-18px); }
+.cause__mark--belly { top: 48%; transform: translateX(12px); }
+.cause__mark--hip { top: 64%; transform: translateX(-8px); }
+.cause__diagram-head {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+.cause__diagram-head h3 {
+  margin: 0;
+  color: var(--blue-dark);
+  font-family: var(--mincho);
+  font-size: clamp(25px, 3.3vw, 38px);
+  font-weight: 600;
+  line-height: 1.45;
+}
+.cause__diagram-head p {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: clamp(14px, 1.55vw, 17px);
+  line-height: 1.9;
+}
+.cause__flow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(24px, 5vw, 64px);
+  margin-top: clamp(34px, 5vw, 58px);
+}
+.cause__flow-step {
+  position: relative;
+  min-width: 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(77, 115, 88, .14);
+}
+.cause__flow-step:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  top: 50%;
+  right: calc(clamp(24px, 5vw, 64px) / -2 - .4em);
+  color: var(--blue-dark);
+  font-family: var(--roman);
+  font-size: 22px;
+  line-height: 1;
+}
+.cause__flow-step span {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--blue);
+  font-family: var(--roman);
+  font-size: 13px;
+  letter-spacing: .18em;
+}
+.cause__flow-step h4 {
+  margin: 0 0 12px;
+  color: var(--blue-dark);
+  font-family: var(--mincho);
+  font-size: clamp(18px, 1.85vw, 23px);
+  font-weight: 600;
+  line-height: 1.45;
+}
+.cause__flow-step p {
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(13px, 1.4vw, 16px);
+  line-height: 1.8;
+}
+.cause__diagram-summary {
+  max-width: 720px;
+  margin: clamp(34px, 5vw, 54px) auto 0;
+  padding-top: 22px;
+  border-top: 1px solid rgba(77, 115, 88, .18);
+  color: var(--blue-dark);
+  font-family: var(--mincho);
+  font-size: clamp(19px, 2.4vw, 26px);
+  font-weight: 600;
+  line-height: 1.65;
+  text-align: center;
+}
 .habit__grid {
   display: grid;
   grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
@@ -1522,6 +1642,60 @@ footer ul {
     gap: 18px;
     margin-top: 42px;
   }
+  .cause__diagram {
+    margin-top: 44px;
+    padding: 40px 18px;
+  }
+  .cause__diagram::before {
+    inset: 0;
+    width: auto;
+  }
+  .cause__diagram::after {
+    inset: 0;
+    width: auto;
+  }
+  .cause__mark {
+    right: 16px;
+    width: 34px;
+  }
+  .cause__diagram-head h3 {
+    font-size: clamp(22px, 5.6vw, 28px);
+  }
+  .cause__diagram-mobile-break {
+    display: block;
+  }
+  .cause__diagram-head p {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .cause__flow {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    margin-top: 32px;
+  }
+  .cause__flow-step {
+    padding-top: 16px;
+  }
+  .cause__flow-step:not(:last-child)::after {
+    content: "↓";
+    top: auto;
+    right: auto;
+    bottom: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+  }
+  .cause__flow-step h4 {
+    font-size: 20px;
+  }
+  .cause__flow-step p {
+    font-size: 14px;
+  }
+  .cause__diagram-summary {
+    margin-top: 36px;
+    padding-top: 18px;
+    font-size: 20px;
+  }
   .cause__col {
     min-width: 0;
     padding-top: 14px;
@@ -1730,6 +1904,33 @@ footer ul {
   .cause__grid {
     gap: 16px;
     margin-top: 36px;
+  }
+  .cause__diagram {
+    margin-top: 38px;
+    padding: 34px 16px;
+  }
+  .cause__diagram-head h3 {
+    font-size: 22px;
+    line-height: 1.45;
+  }
+  .cause__diagram-head p {
+    font-size: 13px;
+  }
+  .cause__flow {
+    gap: 30px;
+    margin-top: 28px;
+  }
+  .cause__flow-step h4 {
+    margin-bottom: 8px;
+    font-size: 18px;
+  }
+  .cause__flow-step p {
+    font-size: 13px;
+    line-height: 1.75;
+  }
+  .cause__diagram-summary {
+    font-size: 18px;
+    line-height: 1.6;
   }
   .cause__col {
     padding-top: 12px;
