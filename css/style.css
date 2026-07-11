@@ -381,30 +381,35 @@ main, footer { margin-left: 132px; }
 }
 .cause__diagram {
   position: relative;
+  box-sizing: border-box;
+  width: 100%;
   overflow: hidden;
   margin-top: clamp(48px, 7vw, 78px);
-  padding: clamp(42px, 6vw, 72px) clamp(18px, 4vw, 58px);
+  padding: clamp(76px, 8vw, 116px) clamp(18px, 4vw, 58px) clamp(62px, 7vw, 96px);
   border-radius: 6px;
-  background: url("../images/couse-backgraund.png") center / cover no-repeat;
+  background: url("../images/couse-backgraund.png") center top / cover no-repeat;
   isolation: isolate;
 }
 .cause__diagram::before {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 0;
-  background: rgba(255, 255, 255, .76);
+  z-index: 1;
+  background:
+    radial-gradient(ellipse at center, rgba(255, 255, 255, .9) 0%, rgba(255, 255, 255, .8) 38%, rgba(255, 255, 255, .48) 76%, rgba(255, 255, 255, .34) 100%);
+  pointer-events: none;
 }
 .cause__diagram::after {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 0;
-  background: rgba(238, 242, 234, .18);
-}
-.cause__diagram > * {
-  position: relative;
   z-index: 1;
+  background: rgba(247, 245, 239, .22);
+  pointer-events: none;
+}
+.cause__diagram > :not(.cause__diagram-bg) {
+  position: relative;
+  z-index: 2;
 }
 .cause__diagram-bg {
   display: none;
@@ -413,6 +418,7 @@ main, footer { margin-left: 132px; }
   display: none;
 }
 .cause__mark {
+  display: none;
   position: absolute;
   right: clamp(54px, 10vw, 150px);
   width: clamp(34px, 5vw, 58px);
@@ -425,7 +431,7 @@ main, footer { margin-left: 132px; }
 .cause__mark--belly { top: 48%; transform: translateX(12px); }
 .cause__mark--hip { top: 64%; transform: translateX(-8px); }
 .cause__diagram-head {
-  max-width: 760px;
+  max-width: 720px;
   margin: 0 auto;
   text-align: center;
 }
@@ -433,68 +439,74 @@ main, footer { margin-left: 132px; }
   margin: 0;
   color: var(--blue-dark);
   font-family: var(--mincho);
-  font-size: clamp(25px, 3.3vw, 38px);
+  font-size: clamp(29px, 4vw, 46px);
   font-weight: 600;
   line-height: 1.45;
 }
 .cause__diagram-head p {
-  margin: 18px 0 0;
+  margin: clamp(28px, 4vw, 42px) 0 0;
   color: var(--muted);
-  font-size: clamp(14px, 1.55vw, 17px);
+  font-size: clamp(15px, 1.65vw, 19px);
+  font-weight: 600;
   line-height: 1.9;
 }
 .cause__flow {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(24px, 5vw, 64px);
-  margin-top: clamp(34px, 5vw, 58px);
+  grid-template-columns: 1fr;
+  gap: clamp(42px, 5vw, 58px);
+  max-width: 560px;
+  margin: clamp(64px, 7vw, 88px) auto 0;
 }
 .cause__flow-step {
   position: relative;
   min-width: 0;
-  padding-top: 20px;
-  border-top: 1px solid rgba(77, 115, 88, .14);
+  padding-top: clamp(22px, 3vw, 30px);
+  border-top: 1px solid rgba(77, 115, 88, .3);
 }
 .cause__flow-step:not(:last-child)::after {
-  content: "→";
+  content: "↓";
   position: absolute;
-  top: 50%;
-  right: calc(clamp(24px, 5vw, 64px) / -2 - .4em);
+  top: auto;
+  right: auto;
+  bottom: calc(clamp(42px, 5vw, 58px) / -2 - .58em);
+  left: 50%;
+  transform: translateX(-50%);
   color: var(--blue-dark);
   font-family: var(--roman);
-  font-size: 22px;
+  font-size: 24px;
   line-height: 1;
 }
 .cause__flow-step span {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
   color: var(--blue);
   font-family: var(--roman);
-  font-size: 13px;
+  font-size: 18px;
   letter-spacing: .18em;
 }
 .cause__flow-step h4 {
-  margin: 0 0 12px;
+  margin: 0 0 16px;
   color: var(--blue-dark);
   font-family: var(--mincho);
-  font-size: clamp(18px, 1.85vw, 23px);
+  font-size: clamp(27px, 3.1vw, 36px);
   font-weight: 600;
   line-height: 1.45;
 }
 .cause__flow-step p {
   margin: 0;
   color: var(--muted);
-  font-size: clamp(13px, 1.4vw, 16px);
+  font-size: clamp(15px, 1.65vw, 19px);
+  font-weight: 600;
   line-height: 1.8;
 }
 .cause__diagram-summary {
-  max-width: 720px;
-  margin: clamp(34px, 5vw, 54px) auto 0;
-  padding-top: 22px;
-  border-top: 1px solid rgba(77, 115, 88, .18);
+  max-width: 700px;
+  margin: clamp(48px, 6vw, 72px) auto 0;
+  padding-top: clamp(28px, 4vw, 38px);
+  border-top: 1px solid rgba(77, 115, 88, .3);
   color: var(--blue-dark);
   font-family: var(--mincho);
-  font-size: clamp(19px, 2.4vw, 26px);
+  font-size: clamp(24px, 3.2vw, 36px);
   font-weight: 600;
   line-height: 1.65;
   text-align: center;
@@ -1644,7 +1656,9 @@ footer ul {
   }
   .cause__diagram {
     margin-top: 44px;
-    padding: 40px 18px;
+    padding: 58px 18px 46px;
+    background-position: center top;
+    background-size: 100% 100%;
   }
   .cause__diagram::before {
     inset: 0;
@@ -1659,42 +1673,46 @@ footer ul {
     width: 34px;
   }
   .cause__diagram-head h3 {
-    font-size: clamp(22px, 5.6vw, 28px);
+    font-size: clamp(20px, 5.2vw, 28px);
+    line-height: 1.55;
+    overflow-wrap: anywhere;
   }
   .cause__diagram-mobile-break {
     display: block;
   }
   .cause__diagram-head p {
-    font-size: 14px;
-    line-height: 1.8;
+    margin-top: 28px;
+    font-size: 15px;
+    line-height: 1.9;
   }
   .cause__flow {
     grid-template-columns: 1fr;
-    gap: 34px;
-    margin-top: 32px;
+    gap: 42px;
+    max-width: 560px;
+    margin-top: 46px;
   }
   .cause__flow-step {
-    padding-top: 16px;
+    padding-top: 22px;
   }
   .cause__flow-step:not(:last-child)::after {
     content: "↓";
     top: auto;
     right: auto;
-    bottom: -28px;
+    bottom: -34px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 18px;
+    font-size: 22px;
   }
   .cause__flow-step h4 {
-    font-size: 20px;
+    font-size: clamp(24px, 6.4vw, 30px);
   }
   .cause__flow-step p {
-    font-size: 14px;
+    font-size: 15px;
   }
   .cause__diagram-summary {
-    margin-top: 36px;
-    padding-top: 18px;
-    font-size: 20px;
+    margin-top: 48px;
+    padding-top: 28px;
+    font-size: clamp(23px, 6.4vw, 30px);
   }
   .cause__col {
     min-width: 0;
@@ -1907,30 +1925,38 @@ footer ul {
   }
   .cause__diagram {
     margin-top: 38px;
-    padding: 34px 16px;
+    padding: 52px 16px 42px;
+  }
+  .cause__diagram-head,
+  .cause__flow,
+  .cause__diagram-summary {
+    max-width: 100%;
   }
   .cause__diagram-head h3 {
-    font-size: 22px;
-    line-height: 1.45;
+    font-size: 17px;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
   }
   .cause__diagram-head p {
-    font-size: 13px;
+    margin-top: 24px;
+    font-size: 14px;
   }
   .cause__flow {
-    gap: 30px;
-    margin-top: 28px;
+    gap: 40px;
+    margin-top: 42px;
   }
   .cause__flow-step h4 {
-    margin-bottom: 8px;
-    font-size: 18px;
+    margin-bottom: 12px;
+    font-size: 23px;
+    overflow-wrap: anywhere;
   }
   .cause__flow-step p {
-    font-size: 13px;
-    line-height: 1.75;
+    font-size: 14px;
+    line-height: 1.8;
   }
   .cause__diagram-summary {
-    font-size: 18px;
-    line-height: 1.6;
+    font-size: 22px;
+    line-height: 1.65;
   }
   .cause__col {
     padding-top: 12px;
